@@ -33,12 +33,12 @@ wezterm.on("gui-startup", function(cmd)
   window:gui_window():set_position(412, 45)
 end)
 
-wezterm.on("update-right-status", function(window)
-  window:set_right_status(wezterm.format({
-    { Attribute = { Intensity = "Bold" } },
-    { Text = wezterm.strftime(" %A, %d %B %Y %I:%M %p ") },
-  }))
-end)
+-- wezterm.on("update-right-status", function(window)
+--   window:set_right_status(wezterm.format({
+--     { Attribute = { Intensity = 'Normal' } },
+--     { Text = wezterm.strftime(" %A, %d %B %Y %I:%M %p ") },
+--   }))
+-- end)
 
 return {
   font = wezterm.font_with_fallback({
@@ -46,6 +46,7 @@ return {
     "Liga SFMono Nerd Font",
     "Apple Color Emoji",
   }),
+
   -- default_prog = { "pwsh.exe" },
   font_size = 11,
   max_fps = 120,
@@ -72,10 +73,10 @@ return {
   },
   enable_scroll_bar = false,
   tab_bar_at_bottom = true,
-  use_fancy_tab_bar = false,
+  use_fancy_tab_bar = true,
   show_new_tab_button_in_tab_bar = false,
   window_background_opacity = 1.0,
-  tab_max_width = 10,
+  tab_max_width = 50,
   hide_tab_bar_if_only_one_tab = true,
   disable_default_key_bindings = false,
   front_end = "WebGpu",
@@ -154,6 +155,76 @@ return {
     quick_select_label_fg = { Color = "#ffffff" },
     quick_select_match_bg = { AnsiColor = "Navy" },
     quick_select_match_fg = { Color = "#ffffff" },
+    tab_bar = {
+      -- The color of the strip that goes along the top of the window
+      -- (does not apply when fancy tab bar is in use)
+      background = "#12181B",
+
+      -- The active tab is the one that has focus in the window
+      active_tab = {
+        -- The color of the background area for the tab
+        -- The color of the text for the tab
+        bg_color = "#0F0F0F",
+        fg_color = "#ABABAF",
+
+        -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
+        -- label shown for this tab.
+        -- The default is "Normal"
+        intensity = "Normal",
+
+        -- Specify whether you want "None", "Single" or "Double" underline for
+        -- label shown for this tab.
+        -- The default is "None"
+        underline = "None",
+
+        -- Specify whether you want the text to be italic (true) or not (false)
+        -- for this tab.  The default is false.
+        italic = false,
+
+        -- Specify whether you want the text to be rendered with strikethrough (true)
+        -- or not for this tab.  The default is false.
+        strikethrough = false,
+      },
+
+      -- Inactive tabs are the tabs that do not have focus
+      inactive_tab = {
+        bg_color = "#12181B",
+        fg_color = "#909090",
+
+        -- The same options that were listed under the `active_tab` section above
+        -- can also be used for `inactive_tab`.
+      },
+
+      -- You can configure some alternate styling when the mouse pointer
+      -- moves over inactive tabs
+      inactive_tab_hover = {
+        bg_color = "#12181B",
+        fg_color = "#ABABAF",
+        italic = true,
+
+        -- The same options that were listed under the `active_tab` section above
+        -- can also be used for `inactive_tab_hover`.
+      },
+
+      -- The new tab button that let you create new tabs
+      new_tab = {
+        bg_color = "#0F0F0F",
+        fg_color = "#ABABAF",
+        -- The same options that were listed under the `active_tab` section above
+        -- can also be used for `new_tab`.
+      },
+
+      -- You can configure some alternate styling when the mouse pointer
+      -- moves over the new tab button
+      new_tab_hover = {
+        bg_color = "#1A1b26",
+        fg_color = "#ABABAF",
+        italic = true,
+
+        -- The same options that were listed under the `active_tab` section above
+        -- can also be used for `new_tab_hover`.
+      },
+    },
   },
   keys = {
     {
