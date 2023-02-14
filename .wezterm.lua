@@ -40,7 +40,48 @@ end)
 --   }))
 -- end)
 
+local palette = {}
+local color = "black"
+
+if color == "blue" then
+	palette = {
+		color1 = "#0E131B",
+		color2 = "#1A1b26",
+		color3 = "#292E42",
+		color4 = "#6F87AF",
+	}
+elseif color == "green" then
+	palette = {
+		color1 = "#141b1e",
+		color2 = "#242E2F",
+		color3 = "#242E32",
+		color4 = "#87AF87",
+	}
+elseif color == "red" then
+	palette = {
+		color1 = "#140B14",
+		color2 = "#2F1F30",
+		color3 = "#322E32",
+		color4 = "#81454C",
+	}
+elseif color == "white" then
+	palette = {
+		color1 = "#2E3440",
+		color2 = "#393B4E",
+		color3 = "#4C4F69",
+		color4 = "#CCD0DA",
+	}
+else
+	palette = {
+		color1 = "#121212",
+		color2 = "#181818",
+		color3 = "#222222",
+		color4 = "#6B7478",
+	}
+end
+
 return {
+	automatically_reload_config = true,
 	font = wezterm.font_with_fallback({
 		"JetBrainsMono NF",
 		"Liga SFMono Nerd Font",
@@ -51,9 +92,9 @@ return {
 	font_size = 11,
 	max_fps = 120,
 	enable_wayland = false,
-	pane_focus_follows_mouse = false,
+	pane_focus_follows_mouse = true,
 	warn_about_missing_glyphs = false,
-	show_update_window = false,
+	show_update_window = true,
 	check_for_updates = false,
 	line_height = 1.0,
 	-- window_decorations = "RESIZE",
@@ -84,7 +125,7 @@ return {
 		-- The default text color
 		foreground = "#BBC2CF",
 		-- The default background color
-		background = "#121212",
+		background = palette.color1,
 
 		-- Overrides the cell background color when the current cell is occupied by the
 		-- cursor and the cursor style is set to Block
@@ -94,18 +135,18 @@ return {
 		-- Specifies the border color of the cursor when the cursor style is set to Block,
 		-- or the color of the vertical or horizontal bar when the cursor style is set to
 		-- Bar or Underline.
-		cursor_border = "#181818",
+		cursor_border = palette.color2,
 
 		-- the foreground color of selected text
 		selection_fg = "#BBC2CF",
 		-- the background color of selected text
-		selection_bg = "#292E42",
+		selection_bg = palette.color3,
 
 		-- The color of the scrollbar "thumb"; the portion that represents the current viewport
-		scrollbar_thumb = "#222222",
+		scrollbar_thumb = palette.color3,
 
 		-- The color of the split lines between panes
-		split = "#6B7478",
+		split = palette.color4,
 
 		ansi = {
 			"#000000",
@@ -268,6 +309,11 @@ return {
 			key = "Q",
 			mods = "ALT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
+		},
+		{
+			key = "r",
+			mods = "ALT",
+			action = wezterm.action.ReloadConfiguration,
 		},
 		{ key = "q", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "z", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
