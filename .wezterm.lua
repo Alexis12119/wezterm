@@ -149,7 +149,7 @@ return {
 		split = palette.color4,
 
 		ansi = {
-			palette.color1,
+			"#BBC2CF",
 			"#ECBE7B",
 			"#98BE65",
 			"#6F87AF",
@@ -159,7 +159,7 @@ return {
 			"#BBC2CF",
 		},
 		brights = {
-			palette.color1,
+			"#BBC2CF",
 			"#DB4B4B",
 			"#98BE65",
 			"#BBC2CF",
