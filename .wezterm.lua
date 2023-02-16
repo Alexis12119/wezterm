@@ -47,7 +47,7 @@ if color == "blue" then
 	palette = {
 		color1 = "#0E131B",
 		color2 = "#1A1b26",
-		color3 = "#292E42",
+		color3 = "#292e42",
 		color4 = "#6F87AF",
 	}
 elseif color == "green" then
@@ -81,14 +81,14 @@ else
 end
 
 return {
-	automatically_reload_config = true,
+	automatically_reload_config = false,
 	font = wezterm.font_with_fallback({
 		"JetBrainsMono NF",
 		"Liga SFMono Nerd Font",
 		"Apple Color Emoji",
 	}),
 
-	-- default_prog = { "pwsh.exe" },
+	default_prog = { "pwsh.exe" },
 	font_size = 11,
 	max_fps = 120,
 	enable_wayland = false,
@@ -149,26 +149,25 @@ return {
 		split = palette.color4,
 
 		ansi = {
-			"#000000",
+			palette.color1,
 			"#ECBE7B",
 			"#98BE65",
-			"olive",
-			"#7AA2F7",
-			"#C678DD",
-			"#1ABC9C",
-			"#ABABAF",
-		},
-		brights = {
-			"#ABABAF",
-			"#DB4B4B",
-			"#87AF87",
-			"#ECBE7B",
+			"#6F87AF",
 			"#7AA2F7",
 			"#BB9AF7",
 			"#6F87AF",
 			"#BBC2CF",
 		},
-
+		brights = {
+			palette.color1,
+			"#DB4B4B",
+			"#98BE65",
+			"#BBC2CF",
+			"#7AA2F7",
+			"#BB9AF7",
+			"#6F87AF",
+			"#BBC2CF",
+		},
 		-- Arbitrary colors of the palette in the range from 16 to 255
 		indexed = { [136] = "#D19A66" },
 
