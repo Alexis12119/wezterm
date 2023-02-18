@@ -49,13 +49,23 @@ if color == "blue" then
 		color2 = "#1A1b26",
 		color3 = "#292e42",
 		color4 = "#6F87AF",
-	}
+		color5 = "#0E131B",
+		color6 = "#ABABAF",
+		color7 = "#0A0E14",
+		color8 = "#909090",
+    color9 = "#1A1B26",
+ }
 elseif color == "green" then
 	palette = {
 		color1 = "#141b1e",
 		color2 = "#242E2F",
 		color3 = "#242E32",
 		color4 = "#87AF87",
+		color5 = "#141B16",
+		color6 = "#ABABAF",
+		color7 = "#0F1416",
+		color8 = "#909090",
+    color9 = "#242E2F",
 	}
 elseif color == "red" then
 	palette = {
@@ -63,13 +73,23 @@ elseif color == "red" then
 		color2 = "#2F1F30",
 		color3 = "#322E32",
 		color4 = "#81454C",
+		color5 = "#140B14",
+		color6 = "#ABABAF",
+		color7 = "#0F080F",
+		color8 = "#909090",
+    color9 = "#2F1F30",
 	}
-elseif color == "white" then
+elseif color == "light_blue" then
 	palette = {
 		color1 = "#2E3440",
 		color2 = "#393B4E",
 		color3 = "#4C4F69",
 		color4 = "#CCD0DA",
+		color5 = "#2E3440",
+		color6 = "#ABABAF",
+		color7 = "#222730",
+		color8 = "#909090",
+    color9 = "#393B4E",
 	}
 else
 	palette = {
@@ -77,6 +97,11 @@ else
 		color2 = "#181818",
 		color3 = "#222222",
 		color4 = "#6B7478",
+		color5 = "#121212",
+		color6 = "#ABABAF",
+		color7 = "#0D0D0D",
+		color8 = "#909090",
+    color9 = "#181818",
 	}
 end
 
@@ -152,7 +177,7 @@ return {
 			"#BBC2CF",
 			"#ECBE7B",
 			"#98BE65",
-			"#6F87AF",
+			"#A9B1D6",
 			"#7AA2F7",
 			"#BB9AF7",
 			"#6F87AF",
@@ -165,7 +190,7 @@ return {
 			"#BBC2CF",
 			"#7AA2F7",
 			"#BB9AF7",
-			"#6F87AF",
+			"#6E6B6B",
 			"#BBC2CF",
 		},
 		-- Arbitrary colors of the palette in the range from 16 to 255
@@ -188,24 +213,24 @@ return {
 		--  "Olive", "Navy", "Purple", "Teal", "Silver", "Grey", "Red", "Lime",
 		-- "Yellow", "Blue", "Fuchsia", "Aqua" or "White".
 		copy_mode_active_highlight_fg = { AnsiColor = "Black" },
-		copy_mode_inactive_highlight_bg = { Color = "#52ad70" },
+		copy_mode_inactive_highlight_bg = { Color = "#52AD70" },
 		copy_mode_inactive_highlight_fg = { AnsiColor = "White" },
 
 		quick_select_label_bg = { Color = "peru" },
-		quick_select_label_fg = { Color = "#ffffff" },
+		quick_select_label_fg = { Color = "#FFFFFF" },
 		quick_select_match_bg = { AnsiColor = "Navy" },
-		quick_select_match_fg = { Color = "#ffffff" },
+		quick_select_match_fg = { Color = "#FFFFFF" },
 		tab_bar = {
 			-- The color of the strip that goes along the top of the window
 			-- (does not apply when fancy tab bar is in use)
-			background = "#12181B",
+			background = palette.color9,
 
 			-- The active tab is the one that has focus in the window
 			active_tab = {
 				-- The color of the background area for the tab
 				-- The color of the text for the tab
-				bg_color = "#0F0F0F",
-				fg_color = "#ABABAF",
+				bg_color = palette.color5,
+				fg_color = palette.color6,
 
 				-- Specify whether you want "Half", "Normal" or "Bold" intensity for the
 				-- label shown for this tab.
@@ -228,8 +253,8 @@ return {
 
 			-- Inactive tabs are the tabs that do not have focus
 			inactive_tab = {
-				bg_color = "#12181B",
-				fg_color = "#909090",
+				bg_color = palette.color7,
+				fg_color = palette.color8,
 
 				-- The same options that were listed under the `active_tab` section above
 				-- can also be used for `inactive_tab`.
@@ -238,8 +263,8 @@ return {
 			-- You can configure some alternate styling when the mouse pointer
 			-- moves over inactive tabs
 			inactive_tab_hover = {
-				bg_color = "#12181B",
-				fg_color = "#ABABAF",
+				fg_color = palette.color6,
+				bg_color = palette.color7,
 				italic = true,
 
 				-- The same options that were listed under the `active_tab` section above
